@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\WriteMailable;
+use App\Mail\ContactanosMailable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -15,7 +15,7 @@ class MailController extends Controller
         // $request->topic;
         // $request->message;
         $sms = $request;
-        $correo = new WriteMailable($sms);
+        $correo = new ContactanosMailable($sms);
         // view('view.name', compact(array('sms')));
         Mail::to($request->email)->send($correo);
         return redirect('/');
